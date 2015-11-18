@@ -1,0 +1,16 @@
+.DS_Store
+thumbs.db
+._*
+*~
+*.sw?
+*.bak
+.htaccess
+composer.phar
+*.iml
+.idea/
+
+/*.db
+/config.php
+/vendor/
+/repository/
+!/repository/.gitkeep

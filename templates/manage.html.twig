@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>Management &mdash; tidus.moe</title>
+    <style>
+      table { border-collapse: collapse }
+      th { background: #efefef; text-align: left }
+      td, th { border: solid 1px #ccc; padding: 0.25em 0.5em }
+    </style>
+  </head>
+
+  <body>
+    <p>Welcome to the admin interface! You can't do anything if you don't have
+      the password, but feel free to look.</p>
+    <hr>
+
+    <h2>Register new extension</h2>
+
+    <form action="/new" method="post" enctype="multipart/form-data">
+      <table>
+        <tbody>
+          <tr>
+            <th>Extension</th>
+            <td><input name="extension" autocomplete="off"></td>
+          </tr>
+          <tr>
+            <th>MIME type</th>
+            <td><input name="mime_type" autocomplete="off"></td>
+          </tr>
+          <tr>
+            <th>File</th>
+            <td><input type="file" name="file">
+          </tr>
+          <tr>
+            <th>Password</th>
+            <td><input type="password" name="password"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Make sure to choose your MIME types wisely!</p>
+
+      <p><input type="submit"></p>
+
+    </form>
+
+    <hr>
+
+    <h2>File extensions</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Extension</th>
+          <th>MIME type</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for row in extensions %}
+          <tr>
+            <td>.{{ row.extension }}</td>
+            <td>{{ row.mime_type }}</td>
+            <td><a href="/tidus_laugh.{{ row.extension }}" target="_blank">view</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <p><a href="/repository.json">view as JSON</a></p>
+
+    <hr>
+
+    <p><a href="/">Home</a></p>
+  </body>
+</html>
