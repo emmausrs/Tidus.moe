@@ -30,7 +30,7 @@ $app->get('/', function () use ($app) {
 });
 
 $app->get('/tidus_laugh.{ext}', function ($ext) use ($app) {
-    $sth = $app['db']->prepare('SELECT * FROM extensions WHERE extension = ?');
+    $sth = $app['db']->prepare('SELECT mime_type FROM extensions WHERE extension = ?');
     $sth->bindValue(1, $ext, \PDO::PARAM_STR);
     $sth->execute();
 
