@@ -54,7 +54,7 @@ $app->get('/tidus_laugh.{ext}', function ($ext) use ($app) {
 })->assert('ext', '^[0-9a-z]+$');
 
 $app->get('/manage', function () use ($app) {
-    $extensions = $app['db']->fetchAll('SELECT * FROM extensions');
+    $extensions = $app['db']->fetchAll('SELECT * FROM extensions ORDER BY extension ASC');
 
     return $app->render('manage.html.twig', ['extensions' => $extensions]);
 });
@@ -104,7 +104,7 @@ $app->post('/new', function (Request $request) use ($app) {
 });
 
 $app->get('/repository.json', function () use ($app) {
-    $all = $app['db']->fetchAll('SELECT * FROM extensions');
+    $all = $app['db']->fetchAll('SELECT * FROM extensions ORDER BY extension ASC');
 
     $response = new JsonResponse(['extensions' => $all]);
 
