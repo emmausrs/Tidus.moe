@@ -1,4 +1,11 @@
 <?php
+/*
+ * Copyright (C) 2015 Emma Usrs
+ *
+ * This work is licensed under the terms of the StopNerds Public License
+ * version 1.1, as published by the StopNerds Foundation.
+ * See http://www.stopnerds.org/license/ for more information.
+ */
 
 use Silex\Application;
 use Silex\Application\TwigTrait;
